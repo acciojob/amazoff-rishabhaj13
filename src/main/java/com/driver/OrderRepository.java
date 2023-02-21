@@ -10,12 +10,21 @@ import java.util.List;
 @Repository
 public class OrderRepository {
 
-    HashMap<String, Order> orderMap = new HashMap<>();
-    HashMap<String, DeliveryPartner> partnerMap = new HashMap<>();
-    HashMap<String, HashSet<String>> partnerOrderMap = new HashMap<>();
-    HashMap<String, String> orderPartnerMap = new HashMap<>();
+    private HashMap<String, Order> orderMap;
+    private HashMap<String, DeliveryPartner> partnerMap;
+    private HashMap<String, HashSet<String>> partnerOrderMap;
+    private HashMap<String, String> orderPartnerMap;
+
+
+    public OrderRepository() {
+        this.orderMap = new HashMap<>();
+        this.partnerMap = new HashMap<>();
+        this.orderPartnerMap = new HashMap<>();
+        this.partnerOrderMap = new HashMap<>();
+    }
 
     public void addOrder(Order order) {
+
         orderMap.put(order.getId(), order);
     }
 
@@ -64,8 +73,9 @@ public class OrderRepository {
         return new ArrayList<>(orderMap.keySet());
     }
 
-    public Integer getCountOfUnassignedOrders() {
+    public int getCountOfUnassignedOrders() {
         Integer countOfOrders = 0;
+
         List<String> orders =  new ArrayList<>(orderMap.keySet());
         for(String orderId: orders){
             if(!orderPartnerMap.containsKey(orderId)){
