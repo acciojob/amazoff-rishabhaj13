@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 @Repository
@@ -22,7 +21,7 @@ public class OrderRepository {
 
     public void addPartner(String partnerId) {
         DeliveryPartner deliveryPartner = new DeliveryPartner(partnerId);
-        partnerMap.put(partnerId, new DeliveryPartner(partnerId));
+        partnerMap.put(partnerId, deliveryPartner);
         partnerOrderMap.put(partnerId, new ArrayList<>());
     }
 

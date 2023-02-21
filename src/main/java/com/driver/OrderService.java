@@ -1,7 +1,6 @@
 package com.driver;
 
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -29,7 +28,7 @@ public class OrderService {
         return orderRepository.getPartnerById(partnerId);
     }
 
-    public Integer getOrderCountByPartnerId(String partnerId) {
+    public int getOrderCountByPartnerId(String partnerId) {
         return orderRepository.getOrderCountByPartnerId(partnerId);
     }
 
@@ -41,15 +40,13 @@ public class OrderService {
         return orderRepository.getAllOrders();
     }
 
-    public Integer getCountOfUnassignedOrders() {
+    public int getCountOfUnassignedOrders() {
         return orderRepository.getCountOfUnassignedOrders();
     }
 
     public void deleteOrderById(String orderId) {
         orderRepository.deleteOrderById(orderId);
     }
-
-
 
     public String getLastDeliveryTimeByPartnerId(String partnerId) {
         return orderRepository.getLastDeliveryTimeByPartnerId(partnerId);
